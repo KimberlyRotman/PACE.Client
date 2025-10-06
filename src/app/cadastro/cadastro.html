@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="mt-5">
+      <form (ngSubmit)="cadastrar()" #alunosFrm="ngForm" novalidate>
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0">Cadastro</h5>
+          </div>
+
+          <div class="card-body">
+            <div class="mb-3">
+              <label class="form-label">Nome: *</label>
+              <input type="text" class="form-control" [(ngModel)]="aluno.nome" name="nome" placeholder="Nome" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Email: *</label>
+              <input type="email" class="form-control" [(ngModel)]="aluno.email" name="email"
+                placeholder="seuemail@exemplo.com" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Senha: *</label>
+              <input type="password" class="form-control" [(ngModel)]="aluno.senha" name="senha"
+                placeholder="Pin de 4 dígitos (Não use senha já usada)" required maxlength="8">
+            </div>
+          </div>
+
+          <mat-card-actions>
+            <button mat-flat-button color="primary" type="submit">
+              <mat-icon fontIcon="account_box"/>
+                Criar Conta
+            </button>
+          </mat-card-actions>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

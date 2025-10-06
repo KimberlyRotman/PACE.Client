@@ -1,0 +1,128 @@
+:root {
+  --pace-blue: #003984;
+}
+
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 57, 132, 0.12);
+  padding: 0.35rem 1rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--pace-blue) !important;
+}
+
+.navbar-brand img {
+  max-height: 35px;
+  width: auto;
+  object-fit: contain;
+  display: inline-block;
+}
+
+.paceName {
+  font-size: 24px;       
+  font-weight: 700;
+  color: var(--pace-blue) !important;
+  line-height: 1;
+  margin: 0;
+}
+
+.nav-icon, mat-icon.nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;         
+  height: 36px;           
+  line-height: 36px;
+  font-size: 28px;       
+  width: 36px;
+  vertical-align: middle;
+  color: var(--pace-blue) !important; 
+  overflow: visible;         
+}
+
+mat-icon {
+  vertical-align: middle;
+}
+
+:root {
+  --pace-blue: #003984;
+}
+
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 57, 132, 0.12);
+  padding: 0.35rem 1rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--pace-blue) !important;
+}
+
+.navbar-brand img {
+  max-height: 35px;
+  width: auto;
+  object-fit: contain;
+  display: inline-block;
+}
+
+.paceName {
+  font-weight: 700;
+  color: #003984 !important;
+  line-height: 1;
+  margin: 0;
+}
+
+.nav-icon, mat-icon.nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;            
+  height: 36px;           
+  line-height: 36px;
+  font-size: 28px;          
+  width: 36px;
+  vertical-align: middle;
+  color: #003984 !important; 
+  overflow: visible;         
+}
+
+mat-icon {
+  vertical-align: middle;
+}
+
+.navbar .nav-link {
+  color: var(--pace-blue) !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.6rem;
+}
+
+.navbar .nav-item {
+  overflow: visible;
+}
+
+.navbar-toggler {
+  border-color: rgba(0,57,132,0.12);
+}
+
+.navbar-toggler-icon {
+  filter: invert(18%) sepia(88%) saturate(5750%) hue-rotate(180deg) brightness(92%) contrast(97%);
+}
+
+img {
+  max-height: 35px;
+  width: auto;
+  object-fit: contain;
+}
+
+.spacer { flex: 1 1 auto; }

@@ -1,0 +1,29 @@
+import { Component } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import { RouterModule } from '@angular/router';
+
+
+@Component({
+  selector: 'app-login',
+  imports: [FlexLayoutModule, 
+            MatCardModule, 
+            FormsModule, 
+            MatFormFieldModule, 
+            MatInputModule,
+            MatIconModule,
+            MatButtonModule,
+            RouterModule],
+  templateUrl: './login.html',
+  styleUrl: './login.scss'
+})
+export class Login {
+  login(){
+    
+  }
+}

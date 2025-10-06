@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="mt-5">
+      <form (ngSubmit)="login()" #loginFrm="ngForm" novalidate>
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0">Login</h5>
+          </div>
+
+          <div class="card-body">
+            <div class="mb-3">
+              <label class="form-label">Email: *</label>
+              <input type="email" class="form-control" name="email" placeholder="seuemail@exemplo.com" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Senha: *</label>
+              <input type="password" class="form-control" name="senha" placeholder="Pin de 4 dígitos" required>
+            </div>
+          </div>
+
+          <div class="card-footer d-flex justify-content-between align-items-center">
+            <a routerLink="/cadastro" class="link-primary">Não Tem Conta? Clique Aqui</a>
+            <button class="btn btn-primary" type="submit">
+              <mat-icon fontIcon="account_box" class="me-1"></mat-icon> Entrar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
