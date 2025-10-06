@@ -18,20 +18,32 @@
               <input type="email" class="form-control" [(ngModel)]="aluno.email" name="email"
                 placeholder="seuemail@exemplo.com" required>
             </div>
-
-            <div class="mb-3">
-              <label class="form-label">Senha: *</label>
-              <input type="password" class="form-control" [(ngModel)]="aluno.senha" name="senha"
-                placeholder="Pin de 4 dígitos (Não use senha já usada)" required maxlength="8">
-            </div>
+            
+            @if(!atualizando){
+              <div class="mb-3">
+                <label class="form-label">Senha: *</label>
+                <input type="password" class="form-control" [(ngModel)]="aluno.senha" name="senha"
+                  placeholder="Pin de 4 dígitos (Não use senha já usada)" required maxlength="8">
+              </div>
+            }
           </div>
 
-          <mat-card-actions>
-            <button mat-flat-button color="primary" type="submit">
-              <mat-icon fontIcon="account_box"/>
+          @if(!atualizando){
+            <mat-card-actions>
+              <button mat-flat-button color="primary" type="submit">
+                <mat-icon fontIcon="person_add"></mat-icon>
                 Criar Conta
-            </button>
-          </mat-card-actions>
+              </button>
+            </mat-card-actions>
+          }@else{
+            <mat-card-actions>
+              <button mat-flat-button color="primary" type="submit">
+                <mat-icon fontIcon="refresh"></mat-icon>
+                Atualizar
+              </button>
+            </mat-card-actions>
+          }
+
         </div>
       </form>
     </div>

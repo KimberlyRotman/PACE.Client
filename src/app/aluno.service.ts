@@ -17,9 +17,36 @@ export class AlunoService {
     localStorage.setItem(AlunoService.REPO_ALUNOS, JSON.stringify(storage));
   }
 
+  atualizar(aluno: Aluno){
+    const storage = this.obterStorage();
+    storage.forEach(a => {
+      if(a.id === aluno.id){
+        Object.assign(a, aluno);
+      }
+    })
+  }
+
+  deletar(aluno: Aluno){
+    const storage = this.obterStorage();
+    
+    const novaLista = storage.filter(a => a.id !== aluno.id);
+
+    localStorage.setItem(AlunoService.REPO_ALUNOS, JSON.stringify(novaLista));
+  }
   
-  pesquisarAlunos(nome: string) : Aluno[] {
-    return this.obterStorage();
+  pesquisarAlunos(nomeBusca: string) : Aluno[] {
+    const alunos = this.obterStorage();
+
+    if(!nomeBusca){
+      return alunos;
+    }
+
+    return alunos.filter(aluno => aluno.nome?.indexOf(nomeBusca) !== -1)
+  }
+
+  buscarAlunoPorId(id: string) : Aluno | undefined{
+    const alunos = this.obterStorage();
+    return alunos.find(aluno => aluno.id === id)
   }
 
   private obterStorage() : Aluno[] {

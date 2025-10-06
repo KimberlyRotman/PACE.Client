@@ -9,6 +9,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { AlunoService } from '../aluno.service';
 import { Aluno } from '../cadastro/aluno';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-alunos',
@@ -25,14 +26,39 @@ import { Aluno } from '../cadastro/aluno';
 })
 export class Alunos implements OnInit{
 
+  nomeBusca: string = '';
   listaClientes: Aluno[] = [];
-  colunasTable: string[] = ["id", "nome", "email"]
+  colunasTable: string[] = ["id", "nome", "email", "acoes"];
 
-  constructor(private service: AlunoService){
+  constructor(
+    private service: AlunoService,
+    private router: Router
+  ){
     
   }
 
   ngOnInit(){
      this.listaClientes = this.service.pesquisarAlunos('');
+  }
+
+  pesquisar(){
+    this.listaClientes = this.service.pesquisarAlunos(this.nomeBusca)
+  }
+
+  preparaEditar(id: string){
+    this.router.navigate(['./cadastro'], {queryParams: {"id": id}})
+  }
+
+  preparaDeletar(aluno: Aluno){
+    aluno.deletando = true;
+  }
+
+  deletar(aluno: Aluno){
+    this.service.deletar(aluno);
+    this.listaClientes = this.service.pesquisarAlunos('');
+  }
+
+  cancelar(aluno: Aluno){
+    aluno.deletando = false;
   }
 }
