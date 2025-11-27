@@ -1,0 +1,88 @@
+.login-container {
+  width: 300px;
+  margin-top: 60px;
+  margin-left: 40px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.logo-box {
+  text-align: center;
+  margin-bottom: 20px;
+
+  .title {
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .main-icon {
+    width: 60px;
+    margin-top: 5px;
+  }
+}
+
+.icon-nome {
+  color: #003cb4;
+}
+
+.icon-email {
+  color: #c41f1f;
+}
+
+.input-box {
+  position: relative;
+  margin: 15px 0;
+
+  input {
+    width: 100%;
+    height: 42px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 0 40px 0 10px;
+    font-size: 16px;
+    outline: none;
+
+    &::placeholder {
+      color: #aaa;
+    }
+  }
+
+  .icon-right {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    font-size: 22px;
+  }
+}
+
+.links-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -5px;
+  margin-bottom: 20px;
+
+  .link-left {
+    font-size: 13px;
+    color: #0096c7;
+  }
+
+  .link-right {
+    font-size: 13px;
+    color: #d00000;
+  }
+}
+
+.btn-enter {
+  width: 140px;
+  padding: 8px 0;
+  border-radius: 6px;
+  border: 2px solid #333;
+  background: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background: #eee;
+  }
+}

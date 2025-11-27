@@ -1,13 +1,15 @@
-<div class="text-center mt-5">
-  <img src="CapaLightVersion.png" class="img-fluid centro" alt="Capa">
-  <p>Planejamento Acadêmico e Controle de Entregas<p>
-</div>
+<div class="container mt-5">
+  <div class="row">
 
-<div class="container">
-  <button class="botao" routerLink="/login">
-    <mat-icon fontIcon="login" class="me-2"></mat-icon>
-    Login
-  </button>
+    <div class="col-md-6 d-flex flex-column align-items-center justify-content-center text-center">
+      <img src="CapaLightVersion.jpg" class="left-image" alt="Capa">
 
-  <a routerLink="/cadastro" class="link-primary mt-2">Não Tem Conta? Clique Aqui</a>
+
+    </div>
+
+    <div class="col-md-6 d-flex justify-content-center">
+      <app-login></app-login>
+    </div>
+
+  </div>
 </div>

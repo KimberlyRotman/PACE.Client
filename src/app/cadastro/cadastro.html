@@ -1,51 +1,30 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="mt-5">
-      <form (ngSubmit)="cadastrar()" #alunosFrm="ngForm" novalidate>
-        <div class="card">
-          <div class="card-header">
-            <h5 class="mb-0">Cadastro</h5>
-          </div>
+<div class="cadastro-container">
 
-          <div class="card-body">
-            <div class="mb-3">
-              <label class="form-label">Nome: *</label>
-              <input type="text" class="form-control" [(ngModel)]="aluno.nome" name="nome" placeholder="Nome" required>
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label">Email: *</label>
-              <input type="email" class="form-control" [(ngModel)]="aluno.email" name="email"
-                placeholder="seuemail@exemplo.com" required>
-            </div>
-            
-            @if(!atualizando){
-              <div class="mb-3">
-                <label class="form-label">Senha: *</label>
-                <input type="password" class="form-control" [(ngModel)]="aluno.senha" name="senha"
-                  placeholder="Pin de 4 dígitos (Não use senha já usada)" required maxlength="8">
-              </div>
-            }
-          </div>
-
-          @if(!atualizando){
-            <mat-card-actions>
-              <button mat-flat-button color="primary" type="submit">
-                <mat-icon fontIcon="person_add"></mat-icon>
-                Criar Conta
-              </button>
-            </mat-card-actions>
-          }@else{
-            <mat-card-actions>
-              <button mat-flat-button color="primary" type="submit">
-                <mat-icon fontIcon="refresh"></mat-icon>
-                Atualizar
-              </button>
-            </mat-card-actions>
-          }
-
-        </div>
-      </form>
-    </div>
+  <div class="logo-box">
+    <img src="PaceLightVersion.png" class="main-icon" alt="Ícone">
+    <h2 class="title">Cadastro</h2>
   </div>
+
+  <div class="input-box">
+    <input type="text" placeholder="Nome" name="nome" [(ngModel)]="aluno.nome" required />
+    <mat-icon fontIcon="person" class="icon-right icon-nome"></mat-icon>
+  </div>
+
+  <div class="input-box">
+    <input type="email" placeholder="Email" name="email" [(ngModel)]="aluno.email" required />
+    <mat-icon fontIcon="mail" class="icon-right icon-email"></mat-icon>
+  </div>
+
+  @if (!atualizando) {
+    <div class="input-box">
+      <input type="password" placeholder="Senha" name="senha" [(ngModel)]="aluno.senha" required maxlength="8" />
+      <mat-icon fontIcon="key" class="icon-right text-warning"></mat-icon>
+    </div>
+  }
+
+  <button class="btn-enter" (click)="cadastrar()">
+    <mat-icon fontIcon="{{ atualizando ? 'refresh' : 'person_add' }}"></mat-icon>
+    {{ atualizando ? 'Atualizar' : 'Criar Conta' }}
+  </button>
+
 </div>
