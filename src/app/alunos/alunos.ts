@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
-import { AlunoService } from '../aluno.service';
+import { AlunoService } from '../services/aluno.service';
 import { Aluno } from '../cadastro/aluno';
 import { Router } from '@angular/router';
 

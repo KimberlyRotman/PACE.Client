@@ -1,0 +1,45 @@
+<div class="page-container">
+
+  <h2 class="titulo">TAREFAS</h2>
+
+  <label class="materia-label">Matéria </label>
+
+  <select [(ngModel)]="materiaSelecionada" (change)="carregarTarefas()">
+    @for (mat of materias; track mat.id) {
+      <option [value]="mat.id">{{ mat.nome }}</option>
+    }
+  </select>
+
+  <div class="tarefas-container">
+    @for (t of tarefas; track t.id) {
+<div class="tarefa-card"
+     [class.grupo]="t.maximoIntegrantes > 1"
+     [class.individual]="t.maximoIntegrantes === 1"
+     (click)="abrirDetalhes(t)">
+
+  <div class="card-header">
+    <h3 class="titulo-card">{{ t.titulo }}</h3>
+
+    <button mat-icon-button class="more-btn" (click)="abrirDetalhes(t); $event.stopPropagation()">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </div>
+
+  <p class="info">
+    {{ t.maximoIntegrantes > 1 ? 'Grupo até ' + t.maximoIntegrantes : 'Individual' }}
+  </p>
+
+  <p class="info">
+    {{ t.plataforma.nome || 'Sem plataforma' }}
+  </p>
+
+  <p class="dias">
+    {{ diasRestantes(t.dataEntrega) }} dias
+  </p>
+
+</div>
+
+    }
+  </div>
+
+</div>

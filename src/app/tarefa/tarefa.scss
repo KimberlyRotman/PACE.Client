@@ -1,0 +1,93 @@
+.page-container {
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 60px;
+  padding: 0 20px;
+}
+
+/* Títulos */
+.titulo {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.titulo-card {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Filtro de matéria */
+.materia-label {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+select {
+  margin-bottom: 20px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Container dos cards */
+.tarefas-container {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Card completo */
+.tarefa-card {
+  width: 180px;
+  padding: 20px;
+  border-radius: 14px;
+
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: 0.2s ease;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  /* Estados */
+  &.grupo {
+    background: #fff8c9;
+  }
+
+  &.individual {
+    background: #c9fff5;
+  }
+
+  /* Hover */
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.14);
+  }
+
+  /* Conteúdo */
+  .info {
+    font-size: 13px;
+    color: #555;
+  }
+
+  .dias {
+    margin-top: 10px;
+    font-weight: 600;
+  }
+}
+
+/* Header do card */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Botão do ícone */
+.more-btn {
+  margin: -8px -8px 0 0;
+}

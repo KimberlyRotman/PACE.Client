@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { AlunoService } from '../aluno.service';
+import { AlunoService } from '../services/aluno.service';
 import { Aluno } from './aluno';
 import { ActivatedRoute, Router } from '@angular/router';
 

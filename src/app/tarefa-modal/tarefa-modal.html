@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>{{ data.titulo }}</h2>
+
+<mat-dialog-content>
+  <p><strong>Descrição:</strong> {{ data.descricao }}</p>
+  <p><strong>Matéria:</strong> {{ data.materia.nome }}</p>
+  <p><strong>Professor:</strong> {{ data.materia.professor.nome }}</p>
+  <p><strong>Email:</strong> {{ data.materia.professor.email }}</p>
+  <p><strong>Plataforma:</strong> {{ data.plataforma.nome }}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Fechar</button>
+</mat-dialog-actions>
