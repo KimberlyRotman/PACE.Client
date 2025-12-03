@@ -1,15 +1,28 @@
 .page-container {
   max-width: 900px;
-  margin: 0 auto;
-  margin-top: 60px;
+  margin: 60px auto 0;
   padding: 0 20px;
 }
 
-/* Títulos */
 .titulo {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 14px;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+  color: #333;
+  position: relative;
+}
+
+.titulo::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  background: #4b88ff;
+  border-radius: 4px;
+  opacity: 0.9;
 }
 
 .titulo-card {
@@ -18,10 +31,11 @@
   margin-bottom: 6px;
 }
 
-/* Filtro de matéria */
 .materia-label {
-  font-size: 14px;
+  font-size: 20px;
   opacity: 0.7;
+  display: inline-block;
+  margin-right: 8px;
 }
 
 select {
@@ -31,19 +45,16 @@ select {
   font-size: 14px;
 }
 
-/* Container dos cards */
 .tarefas-container {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
 }
 
-/* Card completo */
 .tarefa-card {
   width: 180px;
   padding: 20px;
   border-radius: 14px;
-
   background: white;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   transition: 0.2s ease;
@@ -53,7 +64,6 @@ select {
   flex-direction: column;
   position: relative;
 
-  /* Estados */
   &.grupo {
     background: #fff8c9;
   }
@@ -62,32 +72,94 @@ select {
     background: #c9fff5;
   }
 
-  /* Hover */
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.14);
   }
 
-  /* Conteúdo */
   .info {
     font-size: 13px;
     color: #555;
   }
 
   .dias {
-    margin-top: 10px;
-    font-weight: 600;
+    margin-top: 1px;
+    font-weight: 300;
   }
 }
 
-/* Header do card */
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Botão do ícone */
 .more-btn {
+  background: transparent !important;
+  box-shadow: none !important;
+  width: auto;
+  height: auto;
+  padding: 0;
   margin: -8px -8px 0 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  mat-icon {
+    font-size: 20px;
+    color: #444;
+  }
+
+  &:hover {
+    background: transparent !important;
+  }
+}
+
+.info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+
+  span {
+    font-size: 13px;
+    color: #444;
+  }
+
+  .dias {
+    font-weight: 600;
+    color: #333;
+  }
+}
+
+.fab {
+  position: fixed;
+  bottom: 50px;
+  right: 130px;
+
+  width: 54px;
+  height: 54px;
+
+  background: #4b88ff;
+  color: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.fab:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.22);
+}
+
+.fab mat-icon {
+  font-size: 26px;
 }

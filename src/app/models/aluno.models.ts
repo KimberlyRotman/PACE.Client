@@ -1,11 +1,7 @@
-import { MateriaAluno } from './materia.models';
-
-export interface Aluno {
-  id: string;
-  codigo: number;
-  nome: string;
-  email: string;
-  admin: boolean;
-  dataCriacao: Date;
-  materias: MateriaAluno[];
+export class Aluno {
+  id?: string;
+  nome: string = '';
+  email: string = '';
+  senha?: string;
+  codigo?: number;
 }

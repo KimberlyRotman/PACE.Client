@@ -1,62 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Aluno } from '../cadastro/aluno';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlunoService {
 
-  static REPO_ALUNOS = "_ALUNOS";
+  private readonly API = 'https://localhost:7064/Aluno';
 
-  constructor(){}
+  constructor(private http: HttpClient) {}
 
-  cadastrar(aluno: Aluno){
-    const storage = this.obterStorage();
-    storage.push(aluno);
-    localStorage.setItem(AlunoService.REPO_ALUNOS, JSON.stringify(storage));
+  getAll(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.API}`);
   }
 
-  atualizar(aluno: Aluno){
-    const storage = this.obterStorage();
-    storage.forEach(a => {
-      if(a.id === aluno.id){
-        Object.assign(a, aluno);
-      }
-    })
+  getById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.API}/${id}`);
   }
 
-  deletar(aluno: Aluno){
-    const storage = this.obterStorage();
-    
-    const novaLista = storage.filter(a => a.id !== aluno.id);
-
-    localStorage.setItem(AlunoService.REPO_ALUNOS, JSON.stringify(novaLista));
-  }
-  
-  pesquisarAlunos(nomeBusca: string) : Aluno[] {
-    const alunos = this.obterStorage();
-
-    if(!nomeBusca){
-      return alunos;
-    }
-
-    return alunos.filter(aluno => aluno.nome?.indexOf(nomeBusca) !== -1)
+  cadastrar(aluno: any): Observable<any> {
+    return this.http.post(`${this.API}/cadastro`, aluno);
   }
 
-  buscarAlunoPorId(id: string) : Aluno | undefined{
-    const alunos = this.obterStorage();
-    return alunos.find(aluno => aluno.id === id)
+  atualizar(aluno: any): Observable<any> {
+    return this.http.put(`${this.API}`, aluno);
   }
 
-  private obterStorage() : Aluno[] {
-    const repositorioAlunos = localStorage.getItem(AlunoService.REPO_ALUNOS);
-    if(repositorioAlunos){
-      const alunos: Aluno[] = JSON.parse(repositorioAlunos)
-      return alunos;
-    }
-  
-    const alunos: Aluno[] = [];
-    localStorage.setItem(AlunoService.REPO_ALUNOS, JSON.stringify(alunos))
-    return alunos;
+  deletar(id: string): Observable<any> {
+    return this.http.delete(`${this.API}/${id}`);
   }
 }

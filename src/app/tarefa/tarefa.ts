@@ -8,13 +8,16 @@ import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { TarefaModal } from '../tarefa-modal/tarefa-modal';
 import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-tarefa',
   templateUrl: './tarefa.html',
   styleUrls: ['./tarefa.scss'],
-  imports: [FormsModule, CommonModule, MatIconModule],
+imports: [FormsModule, CommonModule, MatIconModule, MatButtonModule],
+
 })
 export class TarefaComponent implements OnInit {
 
@@ -23,16 +26,20 @@ export class TarefaComponent implements OnInit {
 
   materiaSelecionada: string = '';
 
-  constructor(
-    private materiaService: MateriaService,
-    private tarefaService: TarefaService,
-    private dialog: MatDialog
-  ) {}
+constructor(
+  private materiaService: MateriaService,
+  private tarefaService: TarefaService,
+  private dialog: MatDialog,
+  private router: Router
+) {}
+
+navegarParaCadastro() {
+  this.router.navigate(['/cadastro-tarefa']);
+}
 
   ngOnInit(): void {
     this.materiaService.listarMaterias().subscribe(mats => {
 
-      // 🔥 ORDENAÇÃO AQUI
       this.materias = mats.sort((a, b) => a.nome.localeCompare(b.nome));
 
       if (this.materias.length > 0) {
@@ -59,8 +66,6 @@ abrirDetalhes(tarefa: Tarefa) {
     });
   });
 }
-
-
 
   diasRestantes(dataEntrega?: Date | null): number {
     if (!dataEntrega) return 0;

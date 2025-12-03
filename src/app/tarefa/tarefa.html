@@ -12,34 +12,26 @@
 
   <div class="tarefas-container">
     @for (t of tarefas; track t.id) {
-<div class="tarefa-card"
-     [class.grupo]="t.maximoIntegrantes > 1"
-     [class.individual]="t.maximoIntegrantes === 1"
-     (click)="abrirDetalhes(t)">
-
-  <div class="card-header">
-    <h3 class="titulo-card">{{ t.titulo }}</h3>
-
-    <button mat-icon-button class="more-btn" (click)="abrirDetalhes(t); $event.stopPropagation()">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-  </div>
-
-  <p class="info">
-    {{ t.maximoIntegrantes > 1 ? 'Grupo até ' + t.maximoIntegrantes : 'Individual' }}
-  </p>
-
-  <p class="info">
-    {{ t.plataforma.nome || 'Sem plataforma' }}
-  </p>
-
-  <p class="dias">
-    {{ diasRestantes(t.dataEntrega) }} dias
-  </p>
-
-</div>
-
+      <div class="tarefa-card"
+          [class.grupo]="t.maximoIntegrantes > 1"
+          [class.individual]="t.maximoIntegrantes === 1"
+          (click)="abrirDetalhes(t)">
+        <div class="card-header">
+          <h3 class="titulo-card">{{ t.titulo }}</h3>
+            <button mat-icon-button class="more-btn" (click)="abrirDetalhes(t); $event.stopPropagation()">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+        </div>
+      <div class="info-grid">
+        <span>{{ t.maximoIntegrantes > 1 ? 'Grupo até ' + t.maximoIntegrantes : 'Individual' }}</span>
+        <span>{{ t.plataforma.nome || 'Sem plataforma' }}</span>
+        <span class="dias">{{ diasRestantes(t.dataEntrega) }} dias</span>
+      </div>
+    </div>
     }
   </div>
+<div class="fab" (click)="navegarParaCadastro()">
+  <mat-icon>edit</mat-icon>
+</div>
 
 </div>
