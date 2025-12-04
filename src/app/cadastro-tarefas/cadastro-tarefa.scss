@@ -1,0 +1,111 @@
+.tarefa-container {
+  width: 360px;
+  margin-top: 20px;
+  margin-left: 80px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  animation: fade .4s ease;
+}
+
+.logo-box {
+  text-align: center;
+
+  .main-icon {
+    width: 60px;
+    margin-bottom: 5px;
+  }
+
+  .title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    letter-spacing: -0.4px;
+    color: #333;
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 140px;
+      height: 3px;
+      background: #4b88ff;
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 4px;
+    }
+  }
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 14px;
+
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 15px;
+
+    &:focus {
+      border-color: #4b88ff;
+      outline: none;
+    }
+  }
+
+  textarea {
+    min-height: 70px;
+    resize: vertical;
+  }
+}
+
+.form-group-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+  }
+}
+
+.btn-enter {
+  width: 180px;
+  padding: 10px 0;
+  border-radius: 6px;
+  border: 2px solid #4b88ff;
+  background: white;
+  color: #4b88ff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+  transition: .2s;
+
+  &:hover {
+    background: #4b88ff;
+    color: white;
+  }
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

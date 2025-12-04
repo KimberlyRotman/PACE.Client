@@ -11,13 +11,12 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-tarefa',
+  standalone: true,
   templateUrl: './tarefa.html',
   styleUrls: ['./tarefa.scss'],
-imports: [FormsModule, CommonModule, MatIconModule, MatButtonModule],
-
+  imports: [FormsModule, CommonModule, MatIconModule, MatButtonModule],
 })
 export class TarefaComponent implements OnInit {
 
@@ -26,19 +25,19 @@ export class TarefaComponent implements OnInit {
 
   materiaSelecionada: string = '';
 
-constructor(
-  private materiaService: MateriaService,
-  private tarefaService: TarefaService,
-  private dialog: MatDialog,
-  private router: Router
-) {}
+  constructor(
+    private materiaService: MateriaService,
+    private tarefaService: TarefaService,
+    private dialog: MatDialog,
+    private router: Router
+  ) {}
 
-navegarParaCadastro() {
-  this.router.navigate(['/cadastro-tarefa']);
-}
+  navegarParaCadastro() {
+    this.router.navigate(['/cadastro-tarefa']);
+  }
 
   ngOnInit(): void {
-    this.materiaService.listarMaterias().subscribe(mats => {
+    this.materiaService.listarMaterias().subscribe((mats: Materia[]) => {
 
       this.materias = mats.sort((a, b) => a.nome.localeCompare(b.nome));
 
@@ -49,23 +48,28 @@ navegarParaCadastro() {
     });
   }
 
-  carregarTarefas() {
-    if (!this.materiaSelecionada) return;
+carregarTarefas() {
+  if (!this.materiaSelecionada) return;
 
-    this.tarefaService.listarTarefasPorMateria(this.materiaSelecionada)
-      .subscribe(tarefas => {
+  this.materiaService.listarTarefasPorMateria(this.materiaSelecionada)
+    .subscribe({
+      next: (tarefas: Tarefa[]) => {
+        console.log("TAREFAS BUSCADAS:", tarefas);
         this.tarefas = tarefas;
-      });
-  }
-
-abrirDetalhes(tarefa: Tarefa) {
-  this.tarefaService.getTarefaById(tarefa.id).subscribe(t => {
-    this.dialog.open(TarefaModal, {
-      data: t,
-      width: '450px'
+      },
+      error: e => console.error("Erro ao carregar tarefas:", e)
     });
-  });
 }
+
+
+  abrirDetalhes(tarefa: Tarefa) {
+    this.tarefaService.getById(tarefa.id).subscribe((t: Tarefa) => {
+      this.dialog.open(TarefaModal, {
+        data: t,
+        width: '450px'
+      });
+    });
+  }
 
   diasRestantes(dataEntrega?: Date | null): number {
     if (!dataEntrega) return 0;

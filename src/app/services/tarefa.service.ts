@@ -7,16 +7,32 @@ import { Tarefa } from '../models/tarefa.models';
   providedIn: 'root'
 })
 export class TarefaService {
-  private baseUrl = 'https://localhost:7064/materia';
+  private API = 'https://localhost:7064/tarefa';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-  listarTarefasPorMateria(materiaId: string): Observable<Tarefa[]> {
-    return this.httpClient.get<Tarefa[]>(`${this.baseUrl}/${materiaId}/tarefas`);
+  getAll(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.API}`);
   }
 
-  getTarefaById(id: string): Observable<Tarefa> {
-  return this.httpClient.get<Tarefa>(`https://localhost:7064/tarefa/${id}`);
+  getById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.API}/${id}`);
+  }
+
+  getTarefas(): Observable<Tarefa[]> {
+    return this.http.get<Tarefa[]>(this.API);
+  }
+
+  cadastrar(tarefa: any): Observable<any> {
+    return this.http.post(`${this.API}`, tarefa);
+  }
+
+  atualizar(tarefa: any): Observable<any> {
+    return this.http.put(`${this.API}`, tarefa);
+  }
+
+  deletar(id: string): Observable<any> {
+    return this.http.delete(`${this.API}/${id}`);
+  }
 }
 
-}

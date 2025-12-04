@@ -1,1 +1,66 @@
-<p>cadastrar-tarefa works!</p>
+<div class="tarefa-container">
+
+  <div class="logo-box">
+    <img src="PaceLightVersion.png" class="main-icon" alt="Ícone">
+    <h2 class="title">Cadastro de Tarefa</h2>
+  </div>
+
+  <div class="form-group">
+    <label>Título</label>
+    <input type="text" [(ngModel)]="tarefa.titulo" required>
+  </div>
+
+  <div class="form-group">
+    <label>Descrição</label>
+    <textarea [(ngModel)]="tarefa.descricao"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Matéria</label>
+    <select [(ngModel)]="tarefa.materiaId">
+      <option *ngFor="let m of materias" [value]="m.id">{{m.nome}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Plataforma</label>
+    <select [(ngModel)]="tarefa.plataformaId">
+      <option *ngFor="let p of plataformas" [value]="p.id">{{p.nome}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Tipo</label>
+    <select [(ngModel)]="tarefa.tipo">
+      <option [value]="1">Prova</option>
+      <option [value]="2">Atividade</option>
+      <option [value]="3">Trabalho</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Máximo de Integrantes</label>
+    <input type="number" [(ngModel)]="tarefa.maximoIntegrantes" min="1">
+  </div>
+
+  <div class="form-group-check">
+    <label>Apresentação?</label>
+    <input type="checkbox" [(ngModel)]="tarefa.apresentacao">
+  </div>
+
+  <div class="form-group">
+    <label>Data de Entrega</label>
+    <input type="date" [(ngModel)]="tarefa.dataEntrega">
+  </div>
+
+  <div class="form-group">
+    <label>Data de Apresentação</label>
+    <input type="date" [(ngModel)]="tarefa.dataApresentacao">
+  </div>
+
+  <button class="btn-enter" (click)="cadastrar()">
+    <mat-icon fontIcon="save"></mat-icon>
+    Salvar
+  </button>
+
+</div>
