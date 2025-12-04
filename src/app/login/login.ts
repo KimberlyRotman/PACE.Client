@@ -6,7 +6,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { AlunoService } from '../services/aluno.service';
 
 
 @Component({
@@ -20,10 +21,32 @@ import { RouterModule } from '@angular/router';
             MatButtonModule,
             RouterModule],
   templateUrl: './login.html',
-  styleUrl: './login.scss'
+  styleUrls: ['./login.scss']
 })
 export class Login {
-  login(){
-    
+
+  email: string = '';
+  senha: string = '';
+
+  constructor(private alunoService: AlunoService, private router: Router) {}
+
+  login() {
+    const dados = { email: this.email, senha: this.senha };
+
+    this.alunoService.login(dados).subscribe({
+    next: (res: any) => {
+    alert("Login realizado!");
+
+    localStorage.setItem('aluno', JSON.stringify(res));
+
+    localStorage.setItem('alunoId', res.id); 
+
+    this.router.navigate(['/matricula']);
+  },
+  error: err => {
+    alert(err.error || "Falha ao logar");
+  }
+});
+
   }
 }

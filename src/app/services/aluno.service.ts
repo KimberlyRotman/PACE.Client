@@ -30,4 +30,9 @@ export class AlunoService {
   deletar(id: string): Observable<any> {
     return this.http.delete(`${this.API}/${id}`);
   }
+
+  login(data: { email: string; senha: string }): Observable<any> {
+  return this.http.post(`${this.API}/login`, data);
+}
+
 }

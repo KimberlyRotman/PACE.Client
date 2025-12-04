@@ -1,13 +1,37 @@
-<h2 mat-dialog-title>{{ data.titulo }}</h2>
+<div class="modal-container">
 
-<mat-dialog-content>
-  <p><strong>Descrição:</strong> {{ data.descricao }}</p>
-  <p><strong>Matéria:</strong> {{ data.materia.nome }}</p>
-  <p><strong>Professor:</strong> {{ data.materia.professor.nome }}</p>
-  <p><strong>Email:</strong> {{ data.materia.professor.email }}</p>
-  <p><strong>Plataforma:</strong> {{ data.plataforma.nome }}</p>
-</mat-dialog-content>
+  <button class="close-btn" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
 
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Fechar</button>
-</mat-dialog-actions>
+  <div class="header">
+    <h2>{{ data.titulo }}</h2>
+    <span class="tag">{{ data.materia.nome }}</span>
+  </div>
+
+  <mat-dialog-content class="content">
+
+    <div class="info-box">
+      <h3>Descrição</h3>
+      <p>{{ data.descricao }}</p>
+    </div>
+
+    <div class="info-box">
+      <h3>Professor</h3>
+      <p>{{ data.materia.professor.nome }}</p>
+      <small>{{ data.materia.professor.email }}</small>
+    </div>
+
+    <div class="info-box">
+      <h3>Plataforma</h3>
+      <p>{{ data.plataforma.nome }}</p>
+    </div>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button color="primary" mat-dialog-close class="btn-fechar">
+      Fechar
+    </button>
+  </mat-dialog-actions>
+</div>

@@ -1,0 +1,21 @@
+.kanbam{
+  display:flex; gap:20px; padding:30px; justify-content:center;
+}
+
+.col{
+  width:300px; height:80vh; padding:20px; border-radius:30px; overflow-y:auto;
+  display:flex; flex-direction:column; gap:14px;
+
+  h2{text-align:center;font-weight:800;margin-bottom:10px;}
+}
+
+.todo{background:#ffd5d5;}
+.doing{background:#fff9b1;}
+.done{background:#caffd6;}
+
+.card{
+  background:white; border-radius:15px; padding:16px; cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.1); transition:.2s;
+
+  &:hover{transform:scale(1.03);}
+}

@@ -5,12 +5,12 @@
   </div>
 
   <div class="input-box">
-    <input type="text" placeholder="Login" name="email" />
+    <input [(ngModel)]="email" type="text" placeholder="Email" name="email" />
     <mat-icon fontIcon="person" class="icon-right icon-nome"></mat-icon>
   </div>
 
   <div class="input-box">
-    <input type="password" placeholder="Senha" name="senha" />
+    <input [(ngModel)]="senha" type="password" placeholder="Senha" name="senha" />
     <mat-icon fontIcon="key" class="icon-right text-warning"></mat-icon>
   </div>
 
@@ -19,7 +19,6 @@
     <a routerLink="/forgot" class="link-right">Esqueci a Senha</a>
   </div>
 
-  <button class="btn-enter">Entrar</button>
+  <button class="btn-enter" (click)="login()">Entrar</button>
 
 </div>
-

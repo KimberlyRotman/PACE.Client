@@ -1,13 +1,91 @@
-:host {
-  display: block;
-  padding: 10px;
+.modal-container{
+  width: 420px;
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+  animation: fade .3s ease;
 }
 
-p {
-  margin: 6px 0;
-  font-size: 14px;
+.close-btn{
+  position: absolute;
+  top: 10px; right: 10px;
+  background: #f2f2f2;
+  border-radius: 50%;
+  width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  transition: .2s;
+
+  mat-icon{ font-size: 20px; }
+
+  &:hover{ background:#ddd; transform: scale(1.05); }
 }
 
-strong {
-  color: #333;
+.header{
+  text-align: center;
+  padding-top: 20px;
+
+  h2{
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .tag{
+    display: inline-block;
+    background:#4b88ff;
+    color:white;
+    padding:4px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+}
+
+.content{
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap:14px;
+
+  .info-box{
+    background:#fafafa;
+    border-radius:10px;
+    padding:12px 14px;
+    border:1px solid #e3e3e3;
+
+    h3{
+      margin:0 0 4px 0;
+      font-size:15px;
+      font-weight:700;
+      color:#333;
+    }
+
+    p{
+      margin:0; 
+      color:#444; 
+      font-size:14px; 
+      line-height:1.35;
+    }
+
+    small{
+      color:#666;
+      font-size:13px;
+    }
+  }
+}
+
+.btn-fechar{
+  font-weight:600;
+  padding:6px 16px;
+  border-radius:6px;
+  color:white !important;
+  background:#4b88ff !important;
+
+  &:hover{
+    background:#316de0 !important;
+  }
+}
+
+@keyframes fade{
+  from{ opacity:0; transform:scale(.96);}
+  to{ opacity:1; transform:scale(1);}
 }

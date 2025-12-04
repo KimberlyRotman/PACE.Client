@@ -1,0 +1,32 @@
+<h1 class="titulo">KANBAM</h1>
+
+<div class="kanbam">
+
+  <div class="col todo" cdkDropList [cdkDropListData]="todo" (cdkDropListDropped)="drop($event,0)">
+    <h2>To Do</h2>
+    <div *ngFor="let t of todo" class="card" cdkDrag (click)="abrir(t)">
+      <b>{{t.tarefa.titulo}}</b>
+      <small>{{t.tarefa.materia?.nome}}</small>
+      <span>{{t.tarefa.maximoIntegrantes>1?'Grupo':'Individual'}}</span>
+      <p>{{t.tarefa.dataEntrega|date:'dd/MM'}}</p>
+    </div>
+  </div>
+
+  <div class="col doing" cdkDropList [cdkDropListData]="doing" (cdkDropListDropped)="drop($event,1)">
+    <h2>Doing</h2>
+    <div *ngFor="let t of doing" class="card" cdkDrag (click)="abrir(t)">
+      <b>{{t.tarefa.titulo}}</b>
+      <small>{{t.tarefa.materia?.nome}}</small>
+      <p>{{t.tarefa.dataEntrega|date:'dd/MM'}}</p>
+    </div>
+  </div>
+
+  <div class="col done" cdkDropList [cdkDropListData]="done" (cdkDropListDropped)="drop($event,2)">
+    <h2>Done</h2>
+    <div *ngFor="let t of done" class="card" cdkDrag (click)="abrir(t)">
+      <b>{{t.tarefa.titulo}}</b>
+      <small>{{t.tarefa.materia?.nome}}</small>
+    </div>
+  </div>
+
+</div>

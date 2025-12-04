@@ -1,0 +1,23 @@
+<div class="matricula-container">
+
+  <div class="logo-box">
+    <img src="PaceLightVersion.png" class="main-icon" alt="Ícone">
+    <h2 class="title">Matrícula de Matérias</h2>
+  </div>
+
+  <div class="lista">
+    <h3>Selecione as matérias:</h3>
+
+    <div class="materia-item" *ngFor="let m of materias">
+      <label>
+        <input type="checkbox" [(ngModel)]="m.selecionada">
+        {{m.nome}}
+      </label>
+    </div>
+  </div>
+
+  <button class="btn-enter" (click)="matricular()">
+    Matricular Selecionadas
+  </button>
+
+</div>
